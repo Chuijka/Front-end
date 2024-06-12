@@ -1,28 +1,29 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <TheHeader/>
+    <main>
+      <TheProduct title="Shoes Puma" price="120$"/>
+      <TheProduct/>
+      <TheProduct/>
+      <TheProduct/>
+    </main>
+    <TheFooter/>
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import TheHeader from "@/component/TheHeader.vue";
+import TheFooter from "@/component/TheFooter.vue";
+import TheProduct from "@/component/TheProduct.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{
+    background: #313131;
+    color: white;
+    font-family: Arial,serif;
+    font-size: 20px;
+  }
+
 </style>
