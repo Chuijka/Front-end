@@ -1,14 +1,19 @@
 <template>
-  <div>
+  <header>
     <TheHeader/>
-    <main>
-      <TheProduct title="Puma" price="120$"/>
-      <TheProduct title="Nike" price="130$"/>
-      <TheProduct title="Nike" price="110$"/>
-      <TheProduct title="Adidas" price="115$"/>
-    </main>
+  </header>
+  <main>
+    <TheProduct title="Puma" price="120$"/>
+    <TheProduct title="Nike" price="130$"/>
+    <TheProduct title="Nike" price="110$"/>
+    <TheProduct title="Adidas" price="115$"/>
+    <TheProduct title="Adidas" price="115$"/>
+    <TheProduct title="Adidas" price="115$"/>
+    <TheProduct title="Adidas" price="115$"/>
+  </main>
+  <footer>
     <TheFooter/>
-  </div>
+  </footer>
 </template>
 
 <script setup>
@@ -19,11 +24,15 @@ import TheProduct from "./component/TheProduct.vue";
 </script>
 
 <style>
-  body{
-    background: #313131;
-    color: white;
-    font-family: Arial,serif;
-    font-size: 20px;
-  }
+body {
+  background: #313131;
+  color: white;
+  font-family: Arial, serif;
+  font-size: 20px;
+}
+
+footer{
+  margin: 30px;
+}
 
 </style>

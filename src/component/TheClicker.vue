@@ -57,6 +57,8 @@ function updateText(event){
 <style scoped>
 div {
   text-align: center;
-  margin-bottom: 50px;
+}
+input{
+  width: 50px;
 }
 </style>
