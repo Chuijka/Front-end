@@ -1,38 +1,32 @@
 <script setup>
 
-import TheClicker from "./TheClicker.vue";
-
 defineProps({
-    title: String,
-    price: Number
+  title: String,
+  price: Number,
+  imageUrl: String
 })
 
 </script>
 
 <template>
-  <div class="product-block">
-    <div class="product">
-      <h2>Product: {{ title }}</h2>
-      <h3>Price: {{ price }}</h3>
+  <div>
+    <div class="relative m-5 border scale-100 rounded-3xl p-8 cursor-pointer transition hover:shadow-xl hover:-translate-y-1">
+      <img src="../assets/like-1.svg" alt="Like 1" class="absolute top-8 left-8">
+      <img :src="imageUrl" alt="Sneaker">
+      <p class="mt-2">{{ title }}</p>
+
+      <div class="flex justify-between mt-5">
+        <div class="flex flex-col">
+          <span style="color: #7a7a7a">price:</span>
+          <b>{{ price }}$</b>
+        </div>
+        <img src="../assets/plus.svg" alt="plus">
+      </div>
     </div>
-    <div class="clicker">
-      <TheClicker/>
-    </div>
+
   </div>
 </template>
 
 <style scoped>
 
-.product-block {
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 10px;
-  height: 150px;
-}
-.product{
-  float: left;
-}
-.clicker{
-  float: right;
-}
 </style>
