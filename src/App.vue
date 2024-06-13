@@ -1,18 +1,48 @@
 <template>
+  <!--  <TheDrawer/>-->
   <div class="bg-white w-4/5 rounded-3xl shadow-xl m-auto my-4">
+
     <header class="flex justify-between border-b border-slate-200 px-8 py-5">
       <TheHeader/>
     </header>
-    <main>
+
+    <main class="border-b">
       <div class="p-10">
-        <h2 class="text-3xl font-bold m-2">All Shoes</h2>
+
+        <div class="flex justify-between items-center">
+
+          <h2 class="text-3xl font-bold m-2">All Shoes</h2>
+          <div class="flex gap-4">
+            <div>
+              <select class="border border-neutral-300 py-2 px-3 rounded-md outline-none focus:border-neutral-400 transition">
+                <option>by name</option>
+                <option>from cheap to expensive</option>
+                <option>from expensive to cheap</option>
+              </select>
+            </div>
+
+            <div class="relative">
+              <img class="absolute top-3 left-3" src="../src/assets/search.svg" alt="search">
+              <input
+                  placeholder="search..."
+                  class="border border-neutral-300 rounded-md pl-9 pr-2 py-1 outline-none focus:border-neutral-400 transition"
+                  type="text">
+            </div>
+          </div>
+
+
+        </div>
+
         <ProductList/>
+
       </div>
 
     </main>
-    <footer>
+
+    <footer class="flex justify-between border-slate-200 pb-5">
       <TheFooter/>
     </footer>
+
   </div>
 </template>
 
@@ -31,7 +61,7 @@ body {
   font-size: 20px;
 }
 
-footer{
+footer {
   margin: 30px;
 }
 
