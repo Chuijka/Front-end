@@ -55,7 +55,7 @@ import ProductList from "./component/ProductList.vue";
 
 <style>
 body {
-  background-color: rgb(110, 110, 110);
+  background: linear-gradient(to right, rgba(252, 109, 72, 0.5), rgba(250, 183, 88, 0.7));
   color: #000000;
   font-family: Arial, serif;
   font-size: 20px;

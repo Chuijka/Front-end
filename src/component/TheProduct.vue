@@ -14,10 +14,10 @@ defineProps({
 
 <template>
   <div>
-    <div class="relative m-5 border scale-100 rounded-3xl p-8 cursor-pointer transition hover:shadow-xl hover:-translate-y-1">
+    <div class=" relative m-5 border scale-100 rounded-3xl shadow-md p-8 cursor-pointer transition hover:shadow-xl hover:-translate-y-1 duration-300">
       <img :src="!isFavorite ? 'src/assets/like-1.svg' : 'src/assets/like-2.svg'"
            alt="Like 1"
-           class="absolute top-8 left-8"
+           class="rounded-xl shadow transition hover:shadow-md duration-300 hover:-translate-y-0.5 absolute top-8 left-8"
            @click="onClickFavorite"
       >
       <img :src="imageUrl" alt="Sneaker">
