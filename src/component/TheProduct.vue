@@ -1,14 +1,41 @@
-<script setup>
+<script>
+import gql from 'graphql-tag'
+import { useQuery } from '@vue/apollo-composable'
 
-defineProps({
-  title: String,
-  price: Number,
-  imageUrl: String,
-  isFavorite: Boolean,
-  isAdded: Boolean,
-  onClickAdd: Function,
-  onClickFavorite: Function
-})
+const PRODUCT_QUERY = gql`
+  query MyQuery {
+    product {
+      brand
+      id
+      images
+      name
+      stock
+      price
+    }
+  }
+`
+
+export default {
+  name: 'TheProduct',
+  setup () {
+    const { result, loading, error } = useQuery(PRODUCT_QUERY);
+    return {
+      result,
+      loading,
+      error
+    }
+  }
+}
+//
+// defineProps({
+//   title: String,
+//   price: Number,
+//   imageUrl: String,
+//   isFavorite: Boolean,
+//   isAdded: Boolean,
+//   onClickAdd: Function,
+//   onClickFavorite: Function
+// })
 
 </script>
 
@@ -21,7 +48,7 @@ defineProps({
            @click="onClickFavorite"
       >
       <img :src="imageUrl" alt="Sneaker">
-      <p class="mt-2">{{ title }}</p>
+      <p class="mt-2">{{ product.brand }}</p>
 
       <div class="flex justify-between mt-5">
         <div class="flex flex-col">

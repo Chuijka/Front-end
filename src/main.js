@@ -2,21 +2,16 @@ import '../src/main.css'
 
 import { createApp, provide, h } from 'vue'
 import App from '../src/App.vue'
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
+import { ApolloClient, InMemoryCache } from '@apollo/client/core'
 import { DefaultApolloClient } from '@vue/apollo-composable'
 
-// HTTP connection to the API
-const httpLink = createHttpLink({
-    // You should use an absolute URL here
-    uri: 'http://localhost:3020/graphql',
-})
 
 // Cache implementation
 const cache = new InMemoryCache()
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-    link: httpLink,
+    uri: 'https://ql-idrei2kuda-ez.a.run.app/v1/graphql',
     cache,
 })
 

@@ -4,11 +4,11 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "http://localhost:3020/graphql",
+        "url": "https://ql-idrei2kuda-ez.a.run.app/v1/graphql",
         "headers": {
-          "user-agent": "JS GraphQL"
+          "x-hasura-admin-secret": "admin-secret-devlatest"
         },
-        "introspect": false
+        "introspect": true
       }
     }
   }
