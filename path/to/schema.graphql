@@ -1,0 +1,1230 @@
+# This file was generated. Do not edit manually.
+
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+"whether this query should be cached (Hasura Cloud only)"
+directive @cached(
+    "refresh the cache entry"
+    refresh: Boolean! = false,
+    "measured in seconds"
+    ttl: Int! = 60
+) on QUERY
+
+"mutation root"
+type mutation_root {
+    "delete data from the table: \"orders\""
+    delete_orders(
+        "filter the rows which have to be deleted"
+        where: orders_bool_exp!
+    ): orders_mutation_response
+    "delete single row from the table: \"orders\""
+    delete_orders_by_pk(id: uuid!): orders
+    "delete data from the table: \"product\""
+    delete_product(
+        "filter the rows which have to be deleted"
+        where: product_bool_exp!
+    ): product_mutation_response
+    "delete single row from the table: \"product\""
+    delete_product_by_pk(id: Int!): product
+    "delete data from the table: \"user\""
+    delete_user(
+        "filter the rows which have to be deleted"
+        where: user_bool_exp!
+    ): user_mutation_response
+    "delete single row from the table: \"user\""
+    delete_user_by_pk(id: Int!): user
+    "insert data into the table: \"orders\""
+    insert_orders(
+        "the rows to be inserted"
+        objects: [orders_insert_input!]!,
+        "upsert condition"
+        on_conflict: orders_on_conflict
+    ): orders_mutation_response
+    "insert a single row into the table: \"orders\""
+    insert_orders_one(
+        "the row to be inserted"
+        object: orders_insert_input!,
+        "upsert condition"
+        on_conflict: orders_on_conflict
+    ): orders
+    "insert data into the table: \"product\""
+    insert_product(
+        "the rows to be inserted"
+        objects: [product_insert_input!]!,
+        "upsert condition"
+        on_conflict: product_on_conflict
+    ): product_mutation_response
+    "insert a single row into the table: \"product\""
+    insert_product_one(
+        "the row to be inserted"
+        object: product_insert_input!,
+        "upsert condition"
+        on_conflict: product_on_conflict
+    ): product
+    "insert data into the table: \"user\""
+    insert_user(
+        "the rows to be inserted"
+        objects: [user_insert_input!]!,
+        "upsert condition"
+        on_conflict: user_on_conflict
+    ): user_mutation_response
+    "insert a single row into the table: \"user\""
+    insert_user_one(
+        "the row to be inserted"
+        object: user_insert_input!,
+        "upsert condition"
+        on_conflict: user_on_conflict
+    ): user
+    "update data of the table: \"orders\""
+    update_orders(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: orders_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: orders_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: orders_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: orders_delete_key_input,
+        "increments the numeric columns with given value of the filtered values"
+        _inc: orders_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: orders_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: orders_set_input,
+        "filter the rows which have to be updated"
+        where: orders_bool_exp!
+    ): orders_mutation_response
+    "update single row of the table: \"orders\""
+    update_orders_by_pk(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: orders_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: orders_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: orders_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: orders_delete_key_input,
+        "increments the numeric columns with given value of the filtered values"
+        _inc: orders_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: orders_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: orders_set_input,
+        pk_columns: orders_pk_columns_input!
+    ): orders
+    "update multiples rows of table: \"orders\""
+    update_orders_many(
+        "updates to execute, in order"
+        updates: [orders_updates!]!
+    ): [orders_mutation_response]
+    "update data of the table: \"product\""
+    update_product(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: product_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: product_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: product_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: product_delete_key_input,
+        "increments the numeric columns with given value of the filtered values"
+        _inc: product_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: product_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: product_set_input,
+        "filter the rows which have to be updated"
+        where: product_bool_exp!
+    ): product_mutation_response
+    "update single row of the table: \"product\""
+    update_product_by_pk(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: product_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: product_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: product_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: product_delete_key_input,
+        "increments the numeric columns with given value of the filtered values"
+        _inc: product_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: product_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: product_set_input,
+        pk_columns: product_pk_columns_input!
+    ): product
+    "update multiples rows of table: \"product\""
+    update_product_many(
+        "updates to execute, in order"
+        updates: [product_updates!]!
+    ): [product_mutation_response]
+    "update data of the table: \"user\""
+    update_user(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: user_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: user_set_input,
+        "filter the rows which have to be updated"
+        where: user_bool_exp!
+    ): user_mutation_response
+    "update single row of the table: \"user\""
+    update_user_by_pk(
+        "increments the numeric columns with given value of the filtered values"
+        _inc: user_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: user_set_input,
+        pk_columns: user_pk_columns_input!
+    ): user
+    "update multiples rows of table: \"user\""
+    update_user_many(
+        "updates to execute, in order"
+        updates: [user_updates!]!
+    ): [user_mutation_response]
+}
+
+"columns and relationships of \"orders\""
+type orders {
+    id: uuid!
+    item(
+        "JSON select path"
+        path: String
+    ): jsonb!
+    user_id: Int!
+}
+
+"aggregated selection of \"orders\""
+type orders_aggregate {
+    aggregate: orders_aggregate_fields
+    nodes: [orders!]!
+}
+
+"aggregate fields of \"orders\""
+type orders_aggregate_fields {
+    avg: orders_avg_fields
+    count(columns: [orders_select_column!], distinct: Boolean): Int!
+    max: orders_max_fields
+    min: orders_min_fields
+    stddev: orders_stddev_fields
+    stddev_pop: orders_stddev_pop_fields
+    stddev_samp: orders_stddev_samp_fields
+    sum: orders_sum_fields
+    var_pop: orders_var_pop_fields
+    var_samp: orders_var_samp_fields
+    variance: orders_variance_fields
+}
+
+"aggregate avg on columns"
+type orders_avg_fields {
+    user_id: Float
+}
+
+"aggregate max on columns"
+type orders_max_fields {
+    id: uuid
+    user_id: Int
+}
+
+"aggregate min on columns"
+type orders_min_fields {
+    id: uuid
+    user_id: Int
+}
+
+"response of any mutation on the table \"orders\""
+type orders_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [orders!]!
+}
+
+"aggregate stddev on columns"
+type orders_stddev_fields {
+    user_id: Float
+}
+
+"aggregate stddev_pop on columns"
+type orders_stddev_pop_fields {
+    user_id: Float
+}
+
+"aggregate stddev_samp on columns"
+type orders_stddev_samp_fields {
+    user_id: Float
+}
+
+"aggregate sum on columns"
+type orders_sum_fields {
+    user_id: Int
+}
+
+"aggregate var_pop on columns"
+type orders_var_pop_fields {
+    user_id: Float
+}
+
+"aggregate var_samp on columns"
+type orders_var_samp_fields {
+    user_id: Float
+}
+
+"aggregate variance on columns"
+type orders_variance_fields {
+    user_id: Float
+}
+
+"Продукція"
+type product {
+    brand: String!
+    id: Int!
+    images(
+        "JSON select path"
+        path: String
+    ): jsonb!
+    is_active: Boolean!
+    name: String!
+    price: money
+    stock: Int!
+}
+
+"aggregated selection of \"product\""
+type product_aggregate {
+    aggregate: product_aggregate_fields
+    nodes: [product!]!
+}
+
+"aggregate fields of \"product\""
+type product_aggregate_fields {
+    avg: product_avg_fields
+    count(columns: [product_select_column!], distinct: Boolean): Int!
+    max: product_max_fields
+    min: product_min_fields
+    stddev: product_stddev_fields
+    stddev_pop: product_stddev_pop_fields
+    stddev_samp: product_stddev_samp_fields
+    sum: product_sum_fields
+    var_pop: product_var_pop_fields
+    var_samp: product_var_samp_fields
+    variance: product_variance_fields
+}
+
+"aggregate avg on columns"
+type product_avg_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate max on columns"
+type product_max_fields {
+    brand: String
+    id: Int
+    name: String
+    price: money
+    stock: Int
+}
+
+"aggregate min on columns"
+type product_min_fields {
+    brand: String
+    id: Int
+    name: String
+    price: money
+    stock: Int
+}
+
+"response of any mutation on the table \"product\""
+type product_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [product!]!
+}
+
+"aggregate stddev on columns"
+type product_stddev_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate stddev_pop on columns"
+type product_stddev_pop_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate stddev_samp on columns"
+type product_stddev_samp_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate sum on columns"
+type product_sum_fields {
+    id: Int
+    price: money
+    stock: Int
+}
+
+"aggregate var_pop on columns"
+type product_var_pop_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate var_samp on columns"
+type product_var_samp_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+"aggregate variance on columns"
+type product_variance_fields {
+    id: Float
+    price: Float
+    stock: Float
+}
+
+type query_root {
+    "fetch data from the table: \"orders\""
+    orders(
+        "distinct select on columns"
+        distinct_on: [orders_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [orders_order_by!],
+        "filter the rows returned"
+        where: orders_bool_exp
+    ): [orders!]!
+    "fetch aggregated fields from the table: \"orders\""
+    orders_aggregate(
+        "distinct select on columns"
+        distinct_on: [orders_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [orders_order_by!],
+        "filter the rows returned"
+        where: orders_bool_exp
+    ): orders_aggregate!
+    "fetch data from the table: \"orders\" using primary key columns"
+    orders_by_pk(id: uuid!): orders
+    "fetch data from the table: \"product\""
+    product(
+        "distinct select on columns"
+        distinct_on: [product_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [product_order_by!],
+        "filter the rows returned"
+        where: product_bool_exp
+    ): [product!]!
+    "fetch aggregated fields from the table: \"product\""
+    product_aggregate(
+        "distinct select on columns"
+        distinct_on: [product_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [product_order_by!],
+        "filter the rows returned"
+        where: product_bool_exp
+    ): product_aggregate!
+    "fetch data from the table: \"product\" using primary key columns"
+    product_by_pk(id: Int!): product
+    "fetch data from the table: \"user\""
+    user(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): [user!]!
+    "fetch aggregated fields from the table: \"user\""
+    user_aggregate(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): user_aggregate!
+    "fetch data from the table: \"user\" using primary key columns"
+    user_by_pk(id: Int!): user
+}
+
+type subscription_root {
+    "fetch data from the table: \"orders\""
+    orders(
+        "distinct select on columns"
+        distinct_on: [orders_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [orders_order_by!],
+        "filter the rows returned"
+        where: orders_bool_exp
+    ): [orders!]!
+    "fetch aggregated fields from the table: \"orders\""
+    orders_aggregate(
+        "distinct select on columns"
+        distinct_on: [orders_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [orders_order_by!],
+        "filter the rows returned"
+        where: orders_bool_exp
+    ): orders_aggregate!
+    "fetch data from the table: \"orders\" using primary key columns"
+    orders_by_pk(id: uuid!): orders
+    "fetch data from the table in a streaming manner: \"orders\""
+    orders_stream(
+        "maximum number of rows returned in a single batch"
+        batch_size: Int!,
+        "cursor to stream the results returned by the query"
+        cursor: [orders_stream_cursor_input]!,
+        "filter the rows returned"
+        where: orders_bool_exp
+    ): [orders!]!
+    "fetch data from the table: \"product\""
+    product(
+        "distinct select on columns"
+        distinct_on: [product_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [product_order_by!],
+        "filter the rows returned"
+        where: product_bool_exp
+    ): [product!]!
+    "fetch aggregated fields from the table: \"product\""
+    product_aggregate(
+        "distinct select on columns"
+        distinct_on: [product_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [product_order_by!],
+        "filter the rows returned"
+        where: product_bool_exp
+    ): product_aggregate!
+    "fetch data from the table: \"product\" using primary key columns"
+    product_by_pk(id: Int!): product
+    "fetch data from the table in a streaming manner: \"product\""
+    product_stream(
+        "maximum number of rows returned in a single batch"
+        batch_size: Int!,
+        "cursor to stream the results returned by the query"
+        cursor: [product_stream_cursor_input]!,
+        "filter the rows returned"
+        where: product_bool_exp
+    ): [product!]!
+    "fetch data from the table: \"user\""
+    user(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): [user!]!
+    "fetch aggregated fields from the table: \"user\""
+    user_aggregate(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): user_aggregate!
+    "fetch data from the table: \"user\" using primary key columns"
+    user_by_pk(id: Int!): user
+    "fetch data from the table in a streaming manner: \"user\""
+    user_stream(
+        "maximum number of rows returned in a single batch"
+        batch_size: Int!,
+        "cursor to stream the results returned by the query"
+        cursor: [user_stream_cursor_input]!,
+        "filter the rows returned"
+        where: user_bool_exp
+    ): [user!]!
+}
+
+"columns and relationships of \"user\""
+type user {
+    id: Int!
+    is_active: Boolean!
+    name: String!
+}
+
+"aggregated selection of \"user\""
+type user_aggregate {
+    aggregate: user_aggregate_fields
+    nodes: [user!]!
+}
+
+"aggregate fields of \"user\""
+type user_aggregate_fields {
+    avg: user_avg_fields
+    count(columns: [user_select_column!], distinct: Boolean): Int!
+    max: user_max_fields
+    min: user_min_fields
+    stddev: user_stddev_fields
+    stddev_pop: user_stddev_pop_fields
+    stddev_samp: user_stddev_samp_fields
+    sum: user_sum_fields
+    var_pop: user_var_pop_fields
+    var_samp: user_var_samp_fields
+    variance: user_variance_fields
+}
+
+"aggregate avg on columns"
+type user_avg_fields {
+    id: Float
+}
+
+"aggregate max on columns"
+type user_max_fields {
+    id: Int
+    name: String
+}
+
+"aggregate min on columns"
+type user_min_fields {
+    id: Int
+    name: String
+}
+
+"response of any mutation on the table \"user\""
+type user_mutation_response {
+    "number of rows affected by the mutation"
+    affected_rows: Int!
+    "data from the rows affected by the mutation"
+    returning: [user!]!
+}
+
+"aggregate stddev on columns"
+type user_stddev_fields {
+    id: Float
+}
+
+"aggregate stddev_pop on columns"
+type user_stddev_pop_fields {
+    id: Float
+}
+
+"aggregate stddev_samp on columns"
+type user_stddev_samp_fields {
+    id: Float
+}
+
+"aggregate sum on columns"
+type user_sum_fields {
+    id: Int
+}
+
+"aggregate var_pop on columns"
+type user_var_pop_fields {
+    id: Float
+}
+
+"aggregate var_samp on columns"
+type user_var_samp_fields {
+    id: Float
+}
+
+"aggregate variance on columns"
+type user_variance_fields {
+    id: Float
+}
+
+"ordering argument of a cursor"
+enum cursor_ordering {
+    "ascending ordering of the cursor"
+    ASC
+    "descending ordering of the cursor"
+    DESC
+}
+
+"column ordering options"
+enum order_by {
+    "in ascending order, nulls last"
+    asc
+    "in ascending order, nulls first"
+    asc_nulls_first
+    "in ascending order, nulls last"
+    asc_nulls_last
+    "in descending order, nulls first"
+    desc
+    "in descending order, nulls first"
+    desc_nulls_first
+    "in descending order, nulls last"
+    desc_nulls_last
+}
+
+"unique or primary key constraints on table \"orders\""
+enum orders_constraint {
+    "unique or primary key constraint on columns \"id\""
+    orders_pkey
+}
+
+"select columns of table \"orders\""
+enum orders_select_column {
+    "column name"
+    id
+    "column name"
+    item
+    "column name"
+    user_id
+}
+
+"update columns of table \"orders\""
+enum orders_update_column {
+    "column name"
+    id
+    "column name"
+    item
+    "column name"
+    user_id
+}
+
+"unique or primary key constraints on table \"product\""
+enum product_constraint {
+    "unique or primary key constraint on columns \"id\""
+    product_pkey
+}
+
+"select columns of table \"product\""
+enum product_select_column {
+    "column name"
+    brand
+    "column name"
+    id
+    "column name"
+    images
+    "column name"
+    is_active
+    "column name"
+    name
+    "column name"
+    price
+    "column name"
+    stock
+}
+
+"update columns of table \"product\""
+enum product_update_column {
+    "column name"
+    brand
+    "column name"
+    id
+    "column name"
+    images
+    "column name"
+    is_active
+    "column name"
+    name
+    "column name"
+    price
+    "column name"
+    stock
+}
+
+"unique or primary key constraints on table \"user\""
+enum user_constraint {
+    "unique or primary key constraint on columns \"id\""
+    user_pkey
+}
+
+"select columns of table \"user\""
+enum user_select_column {
+    "column name"
+    id
+    "column name"
+    is_active
+    "column name"
+    name
+}
+
+"update columns of table \"user\""
+enum user_update_column {
+    "column name"
+    id
+    "column name"
+    is_active
+    "column name"
+    name
+}
+
+scalar jsonb
+
+scalar money
+
+scalar uuid
+
+"Boolean expression to compare columns of type \"Boolean\". All fields are combined with logical 'AND'."
+input Boolean_comparison_exp {
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'."
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    "does the column match the given case-insensitive pattern"
+    _ilike: String
+    _in: [String!]
+    "does the column match the given POSIX regular expression, case insensitive"
+    _iregex: String
+    _is_null: Boolean
+    "does the column match the given pattern"
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    "does the column NOT match the given case-insensitive pattern"
+    _nilike: String
+    _nin: [String!]
+    "does the column NOT match the given POSIX regular expression, case insensitive"
+    _niregex: String
+    "does the column NOT match the given pattern"
+    _nlike: String
+    "does the column NOT match the given POSIX regular expression, case sensitive"
+    _nregex: String
+    "does the column NOT match the given SQL regular expression"
+    _nsimilar: String
+    "does the column match the given POSIX regular expression, case sensitive"
+    _regex: String
+    "does the column match the given SQL regular expression"
+    _similar: String
+}
+
+input jsonb_cast_exp {
+    String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"jsonb\". All fields are combined with logical 'AND'."
+input jsonb_comparison_exp {
+    _cast: jsonb_cast_exp
+    "is the column contained in the given json value"
+    _contained_in: jsonb
+    "does the column contain the given json value at the top level"
+    _contains: jsonb
+    _eq: jsonb
+    _gt: jsonb
+    _gte: jsonb
+    "does the string exist as a top-level key in the column"
+    _has_key: String
+    "do all of these strings exist as top-level keys in the column"
+    _has_keys_all: [String!]
+    "do any of these strings exist as top-level keys in the column"
+    _has_keys_any: [String!]
+    _in: [jsonb!]
+    _is_null: Boolean
+    _lt: jsonb
+    _lte: jsonb
+    _neq: jsonb
+    _nin: [jsonb!]
+}
+
+"Boolean expression to compare columns of type \"money\". All fields are combined with logical 'AND'."
+input money_comparison_exp {
+    _eq: money
+    _gt: money
+    _gte: money
+    _in: [money!]
+    _is_null: Boolean
+    _lt: money
+    _lte: money
+    _neq: money
+    _nin: [money!]
+}
+
+"append existing jsonb value of filtered columns with new jsonb value"
+input orders_append_input {
+    item: jsonb
+}
+
+"Boolean expression to filter rows from the table \"orders\". All fields are combined with a logical 'AND'."
+input orders_bool_exp {
+    _and: [orders_bool_exp!]
+    _not: orders_bool_exp
+    _or: [orders_bool_exp!]
+    id: uuid_comparison_exp
+    item: jsonb_comparison_exp
+    user_id: Int_comparison_exp
+}
+
+"delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+input orders_delete_at_path_input {
+    item: [String!]
+}
+
+"delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+input orders_delete_elem_input {
+    item: Int
+}
+
+"delete key/value pair or string element. key/value pairs are matched based on their key value"
+input orders_delete_key_input {
+    item: String
+}
+
+"input type for incrementing numeric columns in table \"orders\""
+input orders_inc_input {
+    user_id: Int
+}
+
+"input type for inserting data into table \"orders\""
+input orders_insert_input {
+    id: uuid
+    item: jsonb
+    user_id: Int
+}
+
+"on_conflict condition type for table \"orders\""
+input orders_on_conflict {
+    constraint: orders_constraint!
+    update_columns: [orders_update_column!]! = []
+    where: orders_bool_exp
+}
+
+"Ordering options when selecting data from \"orders\"."
+input orders_order_by {
+    id: order_by
+    item: order_by
+    user_id: order_by
+}
+
+"primary key columns input for table: orders"
+input orders_pk_columns_input {
+    id: uuid!
+}
+
+"prepend existing jsonb value of filtered columns with new jsonb value"
+input orders_prepend_input {
+    item: jsonb
+}
+
+"input type for updating data in table \"orders\""
+input orders_set_input {
+    id: uuid
+    item: jsonb
+    user_id: Int
+}
+
+"Streaming cursor of the table \"orders\""
+input orders_stream_cursor_input {
+    "Stream column input with initial value"
+    initial_value: orders_stream_cursor_value_input!
+    "cursor ordering"
+    ordering: cursor_ordering
+}
+
+"Initial value of the column from where the streaming should start"
+input orders_stream_cursor_value_input {
+    id: uuid
+    item: jsonb
+    user_id: Int
+}
+
+input orders_updates {
+    "append existing jsonb value of filtered columns with new jsonb value"
+    _append: orders_append_input
+    "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+    _delete_at_path: orders_delete_at_path_input
+    "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+    _delete_elem: orders_delete_elem_input
+    "delete key/value pair or string element. key/value pairs are matched based on their key value"
+    _delete_key: orders_delete_key_input
+    "increments the numeric columns with given value of the filtered values"
+    _inc: orders_inc_input
+    "prepend existing jsonb value of filtered columns with new jsonb value"
+    _prepend: orders_prepend_input
+    "sets the columns of the filtered rows to the given values"
+    _set: orders_set_input
+    "filter the rows which have to be updated"
+    where: orders_bool_exp!
+}
+
+"append existing jsonb value of filtered columns with new jsonb value"
+input product_append_input {
+    images: jsonb
+}
+
+"Boolean expression to filter rows from the table \"product\". All fields are combined with a logical 'AND'."
+input product_bool_exp {
+    _and: [product_bool_exp!]
+    _not: product_bool_exp
+    _or: [product_bool_exp!]
+    brand: String_comparison_exp
+    id: Int_comparison_exp
+    images: jsonb_comparison_exp
+    is_active: Boolean_comparison_exp
+    name: String_comparison_exp
+    price: money_comparison_exp
+    stock: Int_comparison_exp
+}
+
+"delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+input product_delete_at_path_input {
+    images: [String!]
+}
+
+"delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+input product_delete_elem_input {
+    images: Int
+}
+
+"delete key/value pair or string element. key/value pairs are matched based on their key value"
+input product_delete_key_input {
+    images: String
+}
+
+"input type for incrementing numeric columns in table \"product\""
+input product_inc_input {
+    id: Int
+    price: money
+    stock: Int
+}
+
+"input type for inserting data into table \"product\""
+input product_insert_input {
+    brand: String
+    id: Int
+    images: jsonb
+    is_active: Boolean
+    name: String
+    price: money
+    stock: Int
+}
+
+"on_conflict condition type for table \"product\""
+input product_on_conflict {
+    constraint: product_constraint!
+    update_columns: [product_update_column!]! = []
+    where: product_bool_exp
+}
+
+"Ordering options when selecting data from \"product\"."
+input product_order_by {
+    brand: order_by
+    id: order_by
+    images: order_by
+    is_active: order_by
+    name: order_by
+    price: order_by
+    stock: order_by
+}
+
+"primary key columns input for table: product"
+input product_pk_columns_input {
+    id: Int!
+}
+
+"prepend existing jsonb value of filtered columns with new jsonb value"
+input product_prepend_input {
+    images: jsonb
+}
+
+"input type for updating data in table \"product\""
+input product_set_input {
+    brand: String
+    id: Int
+    images: jsonb
+    is_active: Boolean
+    name: String
+    price: money
+    stock: Int
+}
+
+"Streaming cursor of the table \"product\""
+input product_stream_cursor_input {
+    "Stream column input with initial value"
+    initial_value: product_stream_cursor_value_input!
+    "cursor ordering"
+    ordering: cursor_ordering
+}
+
+"Initial value of the column from where the streaming should start"
+input product_stream_cursor_value_input {
+    brand: String
+    id: Int
+    images: jsonb
+    is_active: Boolean
+    name: String
+    price: money
+    stock: Int
+}
+
+input product_updates {
+    "append existing jsonb value of filtered columns with new jsonb value"
+    _append: product_append_input
+    "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+    _delete_at_path: product_delete_at_path_input
+    "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+    _delete_elem: product_delete_elem_input
+    "delete key/value pair or string element. key/value pairs are matched based on their key value"
+    _delete_key: product_delete_key_input
+    "increments the numeric columns with given value of the filtered values"
+    _inc: product_inc_input
+    "prepend existing jsonb value of filtered columns with new jsonb value"
+    _prepend: product_prepend_input
+    "sets the columns of the filtered rows to the given values"
+    _set: product_set_input
+    "filter the rows which have to be updated"
+    where: product_bool_exp!
+}
+
+"Boolean expression to filter rows from the table \"user\". All fields are combined with a logical 'AND'."
+input user_bool_exp {
+    _and: [user_bool_exp!]
+    _not: user_bool_exp
+    _or: [user_bool_exp!]
+    id: Int_comparison_exp
+    is_active: Boolean_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"user\""
+input user_inc_input {
+    id: Int
+}
+
+"input type for inserting data into table \"user\""
+input user_insert_input {
+    id: Int
+    is_active: Boolean
+    name: String
+}
+
+"on_conflict condition type for table \"user\""
+input user_on_conflict {
+    constraint: user_constraint!
+    update_columns: [user_update_column!]! = []
+    where: user_bool_exp
+}
+
+"Ordering options when selecting data from \"user\"."
+input user_order_by {
+    id: order_by
+    is_active: order_by
+    name: order_by
+}
+
+"primary key columns input for table: user"
+input user_pk_columns_input {
+    id: Int!
+}
+
+"input type for updating data in table \"user\""
+input user_set_input {
+    id: Int
+    is_active: Boolean
+    name: String
+}
+
+"Streaming cursor of the table \"user\""
+input user_stream_cursor_input {
+    "Stream column input with initial value"
+    initial_value: user_stream_cursor_value_input!
+    "cursor ordering"
+    ordering: cursor_ordering
+}
+
+"Initial value of the column from where the streaming should start"
+input user_stream_cursor_value_input {
+    id: Int
+    is_active: Boolean
+    name: String
+}
+
+input user_updates {
+    "increments the numeric columns with given value of the filtered values"
+    _inc: user_inc_input
+    "sets the columns of the filtered rows to the given values"
+    _set: user_set_input
+    "filter the rows which have to be updated"
+    where: user_bool_exp!
+}
+
+"Boolean expression to compare columns of type \"uuid\". All fields are combined with logical 'AND'."
+input uuid_comparison_exp {
+    _eq: uuid
+    _gt: uuid
+    _gte: uuid
+    _in: [uuid!]
+    _is_null: Boolean
+    _lt: uuid
+    _lte: uuid
+    _neq: uuid
+    _nin: [uuid!]
+}

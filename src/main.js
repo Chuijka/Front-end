@@ -11,7 +11,7 @@ const cache = new InMemoryCache()
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
-    uri: 'https://ql-idrei2kuda-ez.a.run.app/v1/graphql',
+    uri: 'https://inspired-falcon-32.hasura.app/v1/graphql',
     cache,
 })
 

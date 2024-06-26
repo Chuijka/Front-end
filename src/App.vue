@@ -33,7 +33,7 @@
 
         </div>
 
-        <ProductList/>
+        <ProductList :items="items" />
 
       </div>
 
@@ -47,9 +47,44 @@
 </template>
 
 <script setup>
+import axios from "axios";
+import {onMounted, ref} from "vue";
+
 import TheHeader from "./component/TheHeader.vue";
 import TheFooter from "./component/TheFooter.vue";
 import ProductList from "./component/ProductList.vue";
+
+const items = [
+  {
+    "brand": "Nike",
+    "id": 1,
+    "images": "https://hypesneakershop.com.ua/content/images/4/78x78l80nn0/94206165266891.webp",
+    "name": "Air Force 1 '07 | CW2288-111, 42.5",
+    "stock": 99,
+    "price": "$8,600.00"
+  },
+  {
+    "brand": "New Balance",
+    "id": 2,
+    "images": "https://hypesneakershop.com.ua/content/images/40/78x78l80nn0/71192260999084.webp",
+    "name": "990 | U990GR4, 42",
+    "stock": 20,
+    "price": "$7,599.00"
+  }
+];
+
+// const items = ref([]);
+//
+// onMounted(async ()=>{
+//   try {
+//     const {data} = await axios.get('admin-secret-devlatest')
+//
+//     // console.log(data)
+//     items.value = data;
+//   }catch (err){
+//     console.log(err)
+//   }
+// })
 
 </script>
 
